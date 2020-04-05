@@ -9,13 +9,16 @@ def calculation(f):
 
     if function_length != 3:
         print('неверные данные, прочитайте условия ввода')
+        print(len(f.split()))
         main()
-
-    assert sign in ['+', '-', '/', '*'], 'не верный знак операции'
 
     try:
         first_num = int(f.split()[1])
         second_num = int(f.split()[2])
+
+        assert int(f.split()[1]) >= 0 and int(f.split()[2]) >= 0, 'одно из значений меньше нуля'
+
+        assert sign in ['+', '-', '/', '*'], 'не верный знак операции'
 
         if sign == '+':
             return first_num + second_num
